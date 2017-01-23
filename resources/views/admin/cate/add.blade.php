@@ -1,7 +1,8 @@
 @extends('admin.master')
 @section('content')
 <div class="col-lg-7" style="padding-bottom:120px">
-    <form action="" method="POST">
+    <form action="{!! route('admin.cate.getAdd') !!}" method="POST">
+        <input type="hidden" name="_token" value="{!! csrf_token() !!}">
         <div class="form-group">
             <label>Category Parent</label>
             <select class="form-control">

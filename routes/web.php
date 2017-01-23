@@ -14,6 +14,9 @@
 Route::get('/', function () {
     return view('welcome');
 });
-route::get('test', function(){
-	return view('admin.cate.add');
+route::group(['prefix' => 'admin'],function(){
+	route::group(['prefix' => 'cate'],function(){
+		route::get('add',['as' => 'admin.cate.getAdd','uses' => 'CateController@getAdd']);
+		route::post('add',['as' => 'admin.cate.postAdd','uses' => 'CateController@postAdd']);
+	});
 });
